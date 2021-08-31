@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './AnnotateScreenshot/image/index.css'
+import './AnnotateScreenshot/tools/index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'antd/dist/antd.css'
 ReactDOM.render(
   <React.StrictMode>
     <App />
