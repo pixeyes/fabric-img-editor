@@ -1,0 +1,75 @@
+.tools {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.toolsInner {
+    background: rgba(102,102,102,1);
+    border-radius: 7px;
+    padding: 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.toolButton {
+    background: transparent;
+    border: 0;
+    margin: 15px 0 0;
+    color: #fff;
+
+}
+
+.toolButton.toolActive {
+    color: #00c0e9;
+}
+
+.toolButtonTrash {
+    opacity: .3;
+}
+
+
+.break {
+    height: 18px;
+    display: block;
+    border: none;
+    border-left: 1px solid rgba(255,255,255,0.45);
+    margin: 10px 16px 0;
+}
+
+.pickerContainer {
+    position: relative;
+
+}
+.pickerContainer .ant-popover-inner-content{
+    padding: 0;
+}
+
+.save, .cancel {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0;
+    background: transparent;
+}
+
+.icon {
+    color: inherit;
+}
+
+.toolButtonTrashEnabled {
+    opacity: 1;
+    cursor: pointer
+}
