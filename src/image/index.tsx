@@ -6,7 +6,7 @@ import { isDelete } from "../utils/shortcut";
 import { FabricEvent } from "../types";
 interface AnnotateImageProps {
   blob:string
-  container:any
+  container?:() => HTMLElement
   onSave:any
   onCancel:any
   toolsFixed:any
@@ -424,31 +424,6 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       this.drawingObject = canvasObject;
     }
   };
-
-  setContainerDimensions = () => {
-    const rect = this.props.container.getBoundingClientRect();
-
-    this.setState({
-      container: {
-        width: rect.width,
-        height: rect.height
-      }
-    });
-  };
-
-  blobDimensions = () =>
-    new window.Promise((resolve) => {
-      const image = new Image();
-
-      image.onload = function() {
-        resolve({
-          width: image.width,
-          height: image.height
-        });
-      };
-
-      image.src = this.props.blob;
-    });
 
   handleToolChange = (tool:string) => {
     this.setState({
