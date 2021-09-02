@@ -1,6 +1,6 @@
 import React from "react";
 
-function Save(props: any) {
+function Save({ className }: any) {
   return (
     <svg
       width="24px"
@@ -8,6 +8,7 @@ function Save(props: any) {
       viewBox="0 0 24 24"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <title>Rectangle@4x</title>
       <g

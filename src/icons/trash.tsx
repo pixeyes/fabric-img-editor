@@ -8,6 +8,7 @@ function Trash(props: any) {
       viewBox="0 0 25 24"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      className={props.className}
     >
       <g
         id="页面-1"

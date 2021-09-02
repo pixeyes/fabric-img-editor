@@ -20,7 +20,7 @@
     "clean": "rimraf dist lib es",
     "clear": "rimraf node_modules",
     "prepub": "npm run clean && npm run compile && npm run dist && npm run release",
-    "pub": "./node_modules/@jdcfe/publish/publish_jdnpm.sh",
+    "pub": "npm publish --registry https://registry.npmjs.org/",
     "release": "standard-version"
   },
   "eslintConfig": {

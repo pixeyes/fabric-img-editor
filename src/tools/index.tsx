@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import TypeIcon from "../icons/type";
 import ArrowLeftIcon from "../icons/arrow-left";
 import SquareIcon from "../icons/square";
@@ -10,128 +10,141 @@ import cx from "classnames";
 import { Popover, Tooltip } from "antd";
 import { TwitterPicker } from "react-color";
 import Circle from "../icons/Circle";
+interface AnnotateToolsProps {
+  color: string;
+  tool: string;
+  onToolChange: any;
+  onColorChange: any;
+  fixedToWindow: boolean;
+  popupContainer: any;
+  onCancel: any;
+  onSave: any;
+  undo: any;
+}
+const AnnotateTools: FC<AnnotateToolsProps> = ({
+  color,
+  tool,
+  onToolChange,
+  onColorChange,
+  fixedToWindow,
+  popupContainer,
+  onCancel,
+  undo,
+  onSave,
+}) => {
+  const content = (
+    <TwitterPicker
+      triangle="hide"
+      className={"picker"}
+      color={color}
+      onChangeComplete={(color) => onColorChange(color.hex)}
+      colors={[
+        "#FF2600",
+        "#00B4FF",
+        "#61ED00",
+        "#FFEB01",
+        "#929292",
+        "#FFFFFF",
+      ]}
+    />
+  );
 
-export default class AnnotateTools extends React.Component {
-  static defaultProps = {
-    tool: "",
-    color: "#F04632",
-  };
+  const toolClass = (toolName: string) =>
+    cx({
+      toolButton: true,
+      toolActive: tool === toolName,
+    });
 
-
-  setTool = (tool) => {
-    this.props.onToolChange(tool)
-  };
-
-
-  handleColorChange = (color) => {
-    this.props.onColorChange(color.hex);
-  };
-
-  render() {
-    const content = (
-      <TwitterPicker
-        triangle="hide"
-        className={"picker"}
-        color={this.props.color}
-        onChangeComplete={this.handleColorChange}
-        colors={['#FF2600','#00B4FF','#61ED00','#FFEB01','#929292','#FFFFFF']}
-      />
-    );
-
-    const toolClass = (tool) =>
-      cx({
-        toolButton: true,
-        toolActive: this.state.tool === tool,
-      });
-
-    return (
-      <div
-        className={"tools"}
-        style={this.props.fixedToWindow ? { position: "fixed" } : {}}
-      >
-        <div className={"toolsInner"}>
-          {/*<button
-            onClick={() => this.setTool("mouse")}
+  return (
+    <div className={"tools"} style={fixedToWindow ? { position: "fixed" } : {}}>
+      <div className={"toolsInner"}>
+        {/*<button
+            onClick={() => onToolChange("mouse")}
             className={toolClass("mouse")}
           >
             <MouseIcon className={"icon"} />
           </button>*/}
-          <Popover trigger="click" content={content}>
-            <button
-              onClick={() => this.setTool("rect")}
-              className={toolClass("rect")}
-            >
-              <SquareIcon className={"icon"} />
-            </button>
-          </Popover>
-          <Popover trigger="click" content={content}>
-            <button
-              onClick={() => this.setTool("circle")}
-              className={toolClass("circle")}
-            >
-              <Circle className={"icon"} />
-            </button>
-          </Popover>
-          <Popover trigger="click" content={content}>
-            <button
-              onClick={() => this.setTool("arrow")}
-              className={toolClass("arrow")}
-            >
-              <ArrowLeftIcon className={"icon"} />
-            </button>
-          </Popover>
-          <Popover trigger="click" content={content}>
-            <button
-              onClick={() => this.setTool("draw")}
-              className={toolClass("draw")}
-            >
-              <PenIcon className={"icon"} />
-            </button>
-          </Popover>
-          <Popover trigger="click" content={content}>
-            <button
-              onClick={() => this.setTool("text")}
-              className={toolClass("text")}
-            >
-              <TypeIcon className={"icon"} />
-            </button>
-          </Popover>
-
+        <Popover trigger="click" content={content}>
           <button
-            onClick={this.props.undo}
-            className={cx({
-              toolButton: true,
-              toolButtonTrash: false,
-            })}
+            onClick={() => onToolChange("rect")}
+            className={toolClass("rect")}
           >
-            <TrashIcon className={"icon"} />
+            <SquareIcon className={"icon"} />
           </button>
+        </Popover>
+        <Popover trigger="click" content={content}>
+          <button
+            onClick={() => onToolChange("circle")}
+            className={toolClass("circle")}
+          >
+            <Circle className={"icon"} />
+          </button>
+        </Popover>
+        <Popover trigger="click" content={content}>
+          <button
+            onClick={() => onToolChange("arrow")}
+            className={toolClass("arrow")}
+          >
+            <ArrowLeftIcon className={"icon"} />
+          </button>
+        </Popover>
+        <Popover trigger="click" content={content}>
+          <button
+            onClick={() => onToolChange("draw")}
+            className={toolClass("draw")}
+          >
+            <PenIcon className={"icon"} />
+          </button>
+        </Popover>
+        <Popover trigger="click" content={content}>
+          <button
+            onClick={() => onToolChange("text")}
+            className={toolClass("text")}
+          >
+            <TypeIcon className={"icon"} />
+          </button>
+        </Popover>
 
-          <hr className={"break"} />
-          <Tooltip
-            placement="top"
-            title="Cancel"
-            mouseEnterDelay={0.5}
-            align={{ offset: [-12] }}
-            getPopupContainer={() => this.props.container}
-          >
-            <button onClick={this.props.onCancel} className={"cancel"}>
-              <CloseIcon className={"icon"} />
-            </button>
-          </Tooltip>
-          <Tooltip
-            placement="top"
-            title="Save annotations"
-            mouseEnterDelay={0.5}
-            align={{ offset: [-12] }}
-            getPopupContainer={() => this.props.container}
-          >
-            <button onClick={this.props.onSave} className={"save"}>
-              <SaveIcon className={"icon"} />
-            </button>
-          </Tooltip>
-        </div>
+        <button
+          onClick={undo}
+          className={cx({
+            toolButton: true,
+            toolButtonTrash: false,
+          })}
+        >
+          <TrashIcon className={"icon"} />
+        </button>
+
+        <hr className={"break"} />
+        <Tooltip
+          placement="top"
+          title="Cancel"
+          mouseEnterDelay={0.5}
+          align={{ offset: [-12] }}
+          getPopupContainer={() => popupContainer}
+        >
+          <button onClick={onCancel} className={"cancel"}>
+            <CloseIcon className={"icon"} />
+          </button>
+        </Tooltip>
+        <Tooltip
+          placement="top"
+          title="Save annotations"
+          mouseEnterDelay={0.5}
+          align={{ offset: [-12] }}
+          getPopupContainer={() => popupContainer}
+        >
+          <button onClick={onSave} className={"save"}>
+            <SaveIcon className={"icon"} />
+          </button>
+        </Tooltip>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+AnnotateTools.defaultProps = {
+  tool: "",
+  color: "#F04632",
+};
+export default AnnotateTools;
