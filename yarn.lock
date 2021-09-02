@@ -1441,15 +1441,10 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@jdcfe/publish@0.0.2":
-  version "0.0.2"
-  resolved "http://registry.m.jd.com/@jdcfe/publish/download/@jdcfe/publish-0.0.2.tgz#dc2b861f60ff152efadf16495d1b5c6fbee8cddc"
-  integrity sha1-3CuGH2D/FS763xZJXRtcb77ozdw=
-
-"@jdcfe/yep-tools@^0.1.4":
-  version "0.1.6"
-  resolved "http://registry.m.jd.com/@jdcfe/yep-tools/download/@jdcfe/yep-tools-0.1.6.tgz#facf3c5e766c8ec395af30720332041683bf01dc"
-  integrity sha1-+s88XnZsjsOVrzByAzIEFoO/Adw=
+"@jdcfe/yep-tools@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@jdcfe/yep-tools/-/yep-tools-0.1.7.tgz#c99efdabf0fc1d7597c1db988602ce01d9031ee7"
+  integrity sha512-80zyEnecgN0qhsU7b2z9OkbP6dFcsShwHwg61T8f6nDRd/qBQKl5Kuj3GRIajD0Qk2IaipqzwWkHWnQZleCinA==
   dependencies:
     "@babel/core" "^7.1.5"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -1462,7 +1457,7 @@
     "@babel/preset-typescript" "^7.3.3"
     "@typescript-eslint/eslint-plugin" "^3.0.0"
     "@typescript-eslint/parser" "^3.0.0"
-    autoprefixer "^9.3.1"
+    autoprefixer "^10.0.0"
     babel-eslint "^10.0.0"
     babel-loader "^8.1.0"
     babel-plugin-named-asset-import "^0.3.6"
@@ -2678,7 +2673,19 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@^9.3.1, autoprefixer@^9.6.1:
+autoprefixer@^10.0.0:
+  version "10.3.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.3.3.tgz#4bac89c74ef98e6a40fe1c5b76c0d1c91db153ce"
+  integrity sha512-yRzjxfnggrP/+qVHlUuZz5FZzEbkT+Yt0/Df6ScEMnbbZBLzYB2W0KLxoQCW+THm1SpOsM1ZPcTHAwuvmibIsQ==
+  dependencies:
+    browserslist "^4.16.8"
+    caniuse-lite "^1.0.30001252"
+    colorette "^1.3.0"
+    fraction.js "^4.1.1"
+    normalize-range "^0.1.2"
+    postcss-value-parser "^4.1.0"
+
+autoprefixer@^9.6.1:
   version "9.8.6"
   resolved "http://registry.m.jd.com/autoprefixer/download/autoprefixer-9.8.6.tgz#3b73594ca1bf9266320c5acf1588d74dea74210f"
   integrity sha1-O3NZTKG/kmYyDFrPFYjXTep0IQ8=
@@ -3269,7 +3276,7 @@ caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.300011
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz#bacb432b6701f690c8c5f7c680166b9a9f0843d9"
   integrity sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw==
 
-caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001251:
+caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001251, caniuse-lite@^1.0.30001252:
   version "1.0.30001252"
   resolved "http://registry.m.jd.com/caniuse-lite/download/caniuse-lite-1.0.30001252.tgz#cb16e4e3dafe948fc4a9bb3307aea054b912019a"
   integrity sha1-yxbk49r+lI/EqbszB66gVLkSAZo=
@@ -5534,6 +5541,11 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+
+fraction.js@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.1.1.tgz#ac4e520473dae67012d618aab91eda09bcb400ff"
+  integrity sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
