@@ -21,7 +21,8 @@
     "clear": "rimraf node_modules",
     "prepub": "npm run clean && npm run compile && npm run dist && npm run release",
     "pub": "npm publish --registry https://registry.npmjs.org/",
-    "release": "standard-version"
+    "release": "standard-version",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +54,7 @@
     "@types/fabric": "^4.5.2",
     "prettier": "^2.3.2",
     "@jdcfe/publish": "0.0.2",
-    "@jdcfe/yep-tools": "^0.1.4",
+    "@jdcfe/yep-tools": "^0.1.7",
     "@types/classnames": "^2.2.10",
     "antd": "^4.0.0",
     "http-proxy-middleware": "^1.0.5",
