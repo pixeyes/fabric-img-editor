@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@jdcfe/yep-tools": "^0.1.8",
+    "@jdcfe/yep-tools": "^0.1.9",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -64,5 +64,6 @@
     "standard-version": "^9.0.0",
     "typescript": "3.8.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://zhhyang.github.io/fabric-img"
 }
