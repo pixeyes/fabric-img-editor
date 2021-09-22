@@ -17,27 +17,13 @@ function Type(props: any) {
         fill="none"
         fillRule="evenodd"
       >
-        <g
-          id="标注工具栏+创建任务的四种方式"
-          transform="translate(-720.000000, -11561.000000)"
-        >
-          <g id="编组-42" transform="translate(584.000000, 11553.000000)">
-            <g id="编组-41" transform="translate(136.000000, 8.000000)">
-              <g id="圆形备份-2">
-                <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
-              </g>
-              <g
-                id="编组-39"
-                transform="translate(4.000000, 4.500000)"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeWidth="2"
-              >
-                <line x1="0" y1="0.5" x2="16" y2="0.5" id="路径-19"></line>
-                <line x1="8" y1="0.5" x2="8" y2="15.5" id="路径-19"></line>
-              </g>
-            </g>
-          </g>
+        <g id="编组">
+          <path
+            d="M10.8,4.4 L2.5,4.4 C2.22386,4.4 2,4.17614 2,3.9 L2,2.5 C2,2.22386 2.22386,2 2.5,2 L21.5,2 C21.7761,2 22,2.22386 22,2.5 L22,3.9 C22,4.17614 21.7761,4.4 21.5,4.4 L13.2,4.4 L13.2,20.69995 C13.2,20.97615 12.9761,21.19995 12.7,21.19995 L11.3,21.19995 C11.0239,21.19995 10.8,20.97615 10.8,20.69995 L10.8,4.4 Z"
+            id="路径"
+            fill="currentColor"
+          ></path>
+          <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
         </g>
       </g>
     </svg>

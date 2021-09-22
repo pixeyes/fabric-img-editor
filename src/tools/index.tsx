@@ -8,7 +8,7 @@ import SaveIcon from "../icons/save";
 import CloseIcon from "../icons/x";
 import cx from "classnames";
 import { Popover, Tooltip } from "antd";
-import { TwitterPicker } from "react-color";
+import { GithubPicker } from "react-color";
 import Circle from "../icons/Circle";
 interface AnnotateToolsProps {
   color: string;
@@ -33,18 +33,19 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
   onSave,
 }) => {
   const content = (
-    <TwitterPicker
+    <GithubPicker
       triangle="hide"
       className={"picker"}
       color={color}
+      width={"216px"}
       onChangeComplete={(color) => onColorChange(color.hex)}
       colors={[
-        "#FF2600",
-        "#00B4FF",
-        "#61ED00",
-        "#FFEB01",
-        "#929292",
-        "#FFFFFF",
+        "#F04632",
+        "#FFC700",
+        "#00C853",
+        "#00E0FF",
+        "#4A9EF2",
+        "#FF4DFF",
       ]}
     />
   );
@@ -106,6 +107,7 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
           </button>
         </Popover>
 
+        <hr className={"break"} />
         <button
           onClick={undo}
           className={cx({
@@ -115,8 +117,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         >
           <TrashIcon className={"icon"} />
         </button>
-
-        <hr className={"break"} />
         <Tooltip
           placement="top"
           title="Cancel"

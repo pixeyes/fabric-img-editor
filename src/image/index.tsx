@@ -1,6 +1,7 @@
 import React, { RefObject } from "react";
 import Tools from "../tools";
 import { fabric } from "fabric";
+import '../corner'
 import Arrow from "./objects/arrow";
 import { isDelete } from "../utils/shortcut";
 import { FabricEvent } from "../types";
@@ -196,9 +197,9 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   onMouseDown = (opt:FabricEvent) => {
     const { mode } = this.state;
     const event = opt as FabricEvent<MouseEvent>;
-    if (event.target !== null) {
-      return;
-    }
+    // if (event.target !== null) {
+    //   return;
+    // }
     if (mode === "arrow") {
       if (this.pointArray.length && this.activeLine) {
         this.generateArrow(event);
@@ -279,11 +280,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       points,
       type: "arrow",
       stroke: this.state.color,
-      strokeWidth: 3,
+      strokeWidth: 6,
       opacity: 1,
       objectCaching: !this.editable,
       name: "New line",
-      superType: "drawing"
+      superType: "drawing",
     };
     this.add(option);
     this.pointArray = [];
@@ -294,13 +295,17 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   add = (obj:any, ) => {
     const { editable } = this;
     const option = {
-      hasControls: editable,
-      hasBorders: editable,
+      hasControls: true,
+      hasBorders: true,
       selectable: editable,
       lockMovementX: !editable,
       lockMovementY: !editable,
       hoverCursor: !editable ? "pointer" : "default",
-      editable :editable
+      editable :editable,
+      // _controlsVisibility:{
+      //   tl:true,
+      //   mt:false
+      // }
     };
 
 
@@ -392,9 +397,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           left: left,
           top: top,
           stroke: this.state.color,
-          strokeWidth: 1,
+          strokeWidth: 4,
           fill: "rgba(255, 255, 255, 0)",
-          hasControls: true
+          hasControls: true,
+          hasBorders:false,
+          padding:-2
         });
         //也可以使用fabric.Rect
         break;
@@ -413,7 +420,8 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           originY: "center",
           rx: Math.abs(left - mouseTo.x) / 2,
           ry: Math.abs(top - mouseTo.y) / 2,
-          strokeWidth: 2
+          strokeWidth: 4,
+          padding:-2
         });
         break;
     }
@@ -472,8 +480,8 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       fill: this.state.color,
       transparentCorners: false,
       lockRotation: true,
-      borderColor: "#0E98FC",
-      cornerColor: "#0E98FC",
+      borderColor: "#0E2439",
+      cornerColor: "#0E2439",
       centeredScaling: false,
       borderOpacityWhenMoving: 1,
       hasControls: false,
@@ -484,7 +492,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       width: 100,
       cursorDuration: 1,
       cursorDelay: 250,
-
+      fontSize:16
     });
     this.canvas.add(newText).setActiveObject(newText);
     this.canvas.bringToFront(newText);
