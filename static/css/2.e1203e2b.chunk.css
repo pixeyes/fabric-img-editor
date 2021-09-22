@@ -52,7 +52,7 @@ body {
   font-variant: tabular-nums;
   line-height: 1.5715;
   background-color: #fff;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 [tabindex='-1']:focus {
   outline: none !important;
@@ -822,7 +822,6 @@ html {
   display: block;
   border-radius: inherit;
   box-shadow: 0 0 0 0 #1890ff;
-  box-shadow: 0 0 0 0 #1890ff;
   box-shadow: 0 0 0 0 var(--antd-wave-shadow-color);
   opacity: 0.2;
   -webkit-animation: fadeEffect 2s cubic-bezier(0.08, 0.82, 0.17, 1), waveEffect 0.4s cubic-bezier(0.08, 0.82, 0.17, 1);
@@ -835,14 +834,12 @@ html {
 @-webkit-keyframes waveEffect {
   100% {
     box-shadow: 0 0 0 #1890ff;
-    box-shadow: 0 0 0 6px #1890ff;
     box-shadow: 0 0 0 6px var(--antd-wave-shadow-color);
   }
 }
 @keyframes waveEffect {
   100% {
     box-shadow: 0 0 0 #1890ff;
-    box-shadow: 0 0 0 6px #1890ff;
     box-shadow: 0 0 0 6px var(--antd-wave-shadow-color);
   }
 }
@@ -1819,7 +1816,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: flex;
   align-items: center;
@@ -1828,7 +1825,7 @@ html {
   border-radius: 2px;
 }
 .ant-alert-content {
-  flex: 1 1;
+  flex: 1;
   min-width: 0;
 }
 .ant-alert-icon {
@@ -1975,7 +1972,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   padding-left: 2px;
 }
@@ -2077,7 +2074,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-select-auto-complete .ant-select-clear {
   right: 13px;
@@ -2414,7 +2411,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2471,7 +2468,7 @@ html {
   border-right-width: 1px !important;
 }
 .ant-select-selection-item {
-  flex: 1 1;
+  flex: 1;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -2483,7 +2480,7 @@ html {
   }
 }
 .ant-select-selection-placeholder {
-  flex: 1 1;
+  flex: 1;
   overflow: hidden;
   color: #bfbfbf;
   white-space: nowrap;
@@ -2580,7 +2577,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum", ;
+  font-feature-settings: 'tnum';
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -2692,12 +2689,10 @@ html {
   direction: rtl;
 }
 .ant-select-rtl .ant-select-arrow {
-  right: auto;
   right: initial;
   left: 11px;
 }
 .ant-select-rtl .ant-select-clear {
-  right: auto;
   right: initial;
   left: 11px;
 }
@@ -2842,7 +2837,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -2951,7 +2946,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   top: 0;
   left: 0;
@@ -3257,7 +3252,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: fixed;
   right: 100px;
   bottom: 50px;
@@ -3316,7 +3311,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   line-height: 1;
@@ -3643,7 +3638,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   top: 8px;
   height: 22px;
@@ -3859,7 +3854,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   color: rgba(0, 0, 0, 0.45);
   font-size: 14px;
 }
@@ -3960,7 +3955,7 @@ html {
   padding: 0;
   font-variant: tabular-nums;
   line-height: 1.5715;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   margin-bottom: 0;
   padding-left: 0;
   color: rgba(0, 0, 0, 0.85);
@@ -4024,7 +4019,6 @@ html {
   background: #e6f7ff;
 }
 .ant-menu-submenu .ant-menu-sub {
-  cursor: auto;
   cursor: initial;
   transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -4842,7 +4836,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   z-index: 1070;
   display: block;
@@ -5099,7 +5093,7 @@ html {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -7359,7 +7353,7 @@ a.ant-btn-sm {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   background: #fff;
 }
 .ant-picker-calendar-header {
@@ -7532,7 +7526,7 @@ a.ant-btn-sm {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
   font-size: 0;
 }
@@ -7551,7 +7545,7 @@ a.ant-btn-sm {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-flex;
   align-items: baseline;
@@ -7573,7 +7567,7 @@ a.ant-btn-sm {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   top: 0.2em;
   display: inline-block;
@@ -7883,7 +7877,7 @@ span.ant-radio + * {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   padding: 4px 11px 4px;
   position: relative;
   display: inline-flex;
@@ -8129,7 +8123,7 @@ textarea.ant-picker-input > input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   z-index: 1050;
 }
@@ -8906,7 +8900,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
   height: auto;
   margin-right: 8px;
@@ -9154,7 +9148,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   background: #fff;
   border-radius: 2px;
@@ -9199,7 +9193,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 }
 .ant-card-head-title {
   display: inline-block;
-  flex: 1 1;
+  flex: 1;
   padding: 16px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -9745,7 +9739,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -9862,7 +9856,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: flex;
   overflow: hidden;
 }
@@ -15238,7 +15232,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-carousel .slick-slider {
   position: relative;
@@ -15517,7 +15511,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-cascader-input.ant-input {
   position: static;
@@ -15538,7 +15532,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   background-color: #fff;
@@ -15977,7 +15971,7 @@ textarea.ant-input-affix-wrapper {
   padding: 0;
   font-variant: tabular-nums;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   width: 100%;
@@ -16091,7 +16085,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: table;
   width: 100%;
@@ -16563,7 +16557,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   top: 0.2em;
   line-height: 1;
@@ -16689,7 +16683,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-flex;
   align-items: baseline;
   line-height: unset;
@@ -16720,7 +16714,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
 }
 .ant-checkbox-group-item {
@@ -16778,7 +16772,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   background-color: #fafafa;
   border: 1px solid #d9d9d9;
   border-bottom: 0;
@@ -17094,7 +17088,7 @@ textarea.ant-input {
 }
 .ant-descriptions-item-content {
   display: table-cell;
-  flex: 1 1;
+  flex: 1;
   color: rgba(0, 0, 0, 0.85);
   font-size: 14px;
   line-height: 1.5715;
@@ -17186,7 +17180,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 .ant-divider-vertical {
@@ -17430,10 +17424,8 @@ textarea.ant-input {
   text-decoration: none;
 }
 .ant-drawer-header-no-title .ant-drawer-close {
-  margin-right: 0;
   margin-right: var(--scroll-bar);
   /* stylelint-disable-next-line function-calc-no-invalid */
-  padding-right: calc(20px - 0);
   padding-right: calc(20px - var(--scroll-bar));
 }
 .ant-drawer-header {
@@ -17596,7 +17588,7 @@ textarea.ant-input {
   flex-grow: 0;
 }
 .ant-form-horizontal .ant-form-item-control {
-  flex: 1 1;
+  flex: 1 1 0;
 }
 .ant-form-vertical .ant-form-item {
   flex-direction: column;
@@ -17609,7 +17601,6 @@ textarea.ant-input {
 .ant-col-xl-24.ant-form-item-label {
   padding: 0 0 8px;
   line-height: 1.5715;
-  white-space: normal;
   white-space: initial;
   text-align: left;
 }
@@ -17632,7 +17623,6 @@ textarea.ant-input {
   .ant-form-item .ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -17656,7 +17646,6 @@ textarea.ant-input {
   .ant-col-xs-24.ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -17674,7 +17663,6 @@ textarea.ant-input {
   .ant-col-sm-24.ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -17692,7 +17680,6 @@ textarea.ant-input {
   .ant-col-md-24.ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -17710,7 +17697,6 @@ textarea.ant-input {
   .ant-col-lg-24.ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -17728,7 +17714,6 @@ textarea.ant-input {
   .ant-col-xl-24.ant-form-item-label {
     padding: 0 0 8px;
     line-height: 1.5715;
-    white-space: normal;
     white-space: initial;
     text-align: left;
   }
@@ -18024,7 +18009,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-form legend {
   display: block;
@@ -18097,7 +18082,7 @@ textarea.ant-input {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   margin-bottom: 24px;
   vertical-align: top;
 }
@@ -18562,7 +18547,7 @@ textarea.ant-input {
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5715;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   top: 0;
   right: 0;
@@ -18637,7 +18622,7 @@ textarea.ant-input {
   box-sizing: border-box;
   font-variant: tabular-nums;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   width: 100%;
   min-width: 0;
@@ -19108,7 +19093,7 @@ textarea.ant-input-number {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
 }
 .ant-list * {
@@ -19153,7 +19138,7 @@ textarea.ant-input-number {
 }
 .ant-list-item-meta {
   display: flex;
-  flex: 1 1;
+  flex: 1;
   align-items: flex-start;
   max-width: 100%;
 }
@@ -19257,7 +19242,7 @@ textarea.ant-input-number {
 }
 .ant-list-vertical .ant-list-item-main {
   display: block;
-  flex: 1 1;
+  flex: 1;
 }
 .ant-list-vertical .ant-list-item-extra {
   margin-left: 40px;
@@ -19426,7 +19411,7 @@ textarea.ant-input-number {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: absolute;
   display: none;
   color: #1890ff;
@@ -19647,7 +19632,7 @@ textarea.ant-input-number {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-pagination ul,
 .ant-pagination ol {
@@ -20168,7 +20153,7 @@ textarea.ant-pagination-options-quick-jumper input {
   margin: 0;
   font-variant: tabular-nums;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   width: 100%;
   min-width: 0;
   padding: 4px 11px;
@@ -20296,7 +20281,6 @@ textarea.ant-mentions {
   font-size: inherit;
   font-family: inherit;
   font-style: inherit;
-  font-feature-settings: inherit;
   font-variant: inherit;
   font-size-adjust: inherit;
   font-stretch: inherit;
@@ -20357,7 +20341,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum", ;
+  font-feature-settings: 'tnum';
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -20438,7 +20422,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: fixed;
   top: 8px;
   left: 0;
@@ -20531,7 +20515,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   pointer-events: none;
   position: relative;
   top: 100px;
@@ -20675,7 +20659,7 @@ textarea.ant-mentions {
     margin: 8px auto;
   }
   .ant-modal-centered .ant-modal {
-    flex: 1 1;
+    flex: 1;
   }
 }
 .ant-modal-confirm .ant-modal-header {
@@ -20739,7 +20723,6 @@ textarea.ant-mentions {
   direction: rtl;
 }
 .ant-modal-wrap-rtl .ant-modal-close {
-  right: auto;
   right: initial;
   left: 0;
 }
@@ -20786,7 +20769,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: fixed;
   z-index: 1010;
   margin-right: 24px;
@@ -21046,7 +21029,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   padding: 16px 24px;
   background-color: #fff;
@@ -21211,7 +21194,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
 }
 .ant-progress-line {
@@ -21415,7 +21398,7 @@ textarea.ant-mentions {
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5715;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -21858,7 +21841,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   height: 12px;
   margin: 10px 6px 10px;
@@ -22099,7 +22082,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
 }
 .ant-statistic-title {
   margin-bottom: 4px;
@@ -22150,17 +22133,16 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: flex;
   width: 100%;
   font-size: 0;
-  text-align: left;
   text-align: initial;
 }
 .ant-steps-item {
   position: relative;
   display: inline-block;
-  flex: 1 1;
+  flex: 1;
   overflow: hidden;
   vertical-align: top;
 }
@@ -22656,7 +22638,7 @@ textarea.ant-mentions {
   opacity: 0.85;
 }
 .ant-steps-navigation .ant-steps-item:last-child {
-  flex: 1 1;
+  flex: 1;
 }
 .ant-steps-navigation .ant-steps-item:last-child::after {
   display: none;
@@ -22883,7 +22865,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -23191,7 +23173,7 @@ textarea.ant-mentions {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   font-size: 14px;
   background: #fff;
@@ -23313,7 +23295,6 @@ div.ant-table-summary {
 .ant-table-pagination {
   display: flex;
   flex-wrap: wrap;
-  grid-row-gap: 8px;
   row-gap: 8px;
 }
 .ant-table-pagination > * {
@@ -23354,7 +23335,7 @@ td.ant-table-column-sort {
 .ant-table-column-title {
   position: relative;
   z-index: 1;
-  flex: 1 1;
+  flex: 1;
 }
 .ant-table-column-sorters {
   display: flex;
@@ -23428,7 +23409,7 @@ td.ant-table-column-sort {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   min-width: 120px;
   background-color: #fff;
   border-radius: 2px;
@@ -23832,7 +23813,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5715;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24121,7 +24102,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   display: flex;
   align-items: stretch;
@@ -24388,7 +24369,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   top: 0.2em;
   line-height: 1;
@@ -24514,7 +24495,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-flex;
   align-items: baseline;
   line-height: unset;
@@ -24545,7 +24526,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
 }
 .ant-select-tree-checkbox-group-item {
@@ -24603,7 +24584,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   background: #fff;
   border-radius: 2px;
   transition: background-color 0.3s;
@@ -24709,7 +24690,6 @@ span.ant-transfer-list-search-action {
   content: ' ';
 }
 .ant-select-tree-checkbox {
-  top: auto;
   top: initial;
   margin: 4px 8px 0 0;
 }
@@ -24888,7 +24868,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   position: relative;
   top: 0.2em;
   line-height: 1;
@@ -25014,7 +24994,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-flex;
   align-items: baseline;
   line-height: unset;
@@ -25045,7 +25025,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   display: inline-block;
 }
 .ant-tree-checkbox-group-item {
@@ -25085,7 +25065,7 @@ span.ant-transfer-list-search-action {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   background: #fff;
   border-radius: 2px;
   transition: background-color 0.3s;
@@ -25191,7 +25171,6 @@ span.ant-transfer-list-search-action {
   content: ' ';
 }
 .ant-tree-checkbox {
-  top: auto;
   top: initial;
   margin: 4px 8px 0 0;
 }
@@ -25669,7 +25648,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   outline: 0;
 }
 .ant-upload p {
@@ -25794,7 +25773,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   font-size: 14px;
   font-variant: tabular-nums;
   list-style: none;
-  font-feature-settings: 'tnum', "tnum";
+  font-feature-settings: 'tnum';
   line-height: 1.5715;
 }
 .ant-upload-list::before {
@@ -26300,4 +26279,4 @@ div.ant-typography-edit-content.ant-typography-rtl {
 
 /*# sourceMappingURL=antd.css.map*/
 
-/*# sourceMappingURL=2.786ae0dd.chunk.css.map*/
+/*# sourceMappingURL=2.e1203e2b.chunk.css.map*/
