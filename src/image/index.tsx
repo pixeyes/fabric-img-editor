@@ -197,9 +197,9 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   onMouseDown = (opt:FabricEvent) => {
     const { mode } = this.state;
     const event = opt as FabricEvent<MouseEvent>;
-    // if (event.target !== null) {
-    //   return;
-    // }
+    if (event.target !== null) {
+      return;
+    }
     if (mode === "arrow") {
       if (this.pointArray.length && this.activeLine) {
         this.generateArrow(event);
