@@ -204,7 +204,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       if (mode === "rect" || mode === "circle" || mode === "arrow") {
         return;
       }
-      if (mode === "text" && event.target.text != undefined) {
+      if (mode === "text" && event.target.text !== undefined) {
         return;
       }
     }
