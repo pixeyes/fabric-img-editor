@@ -27,9 +27,9 @@ const Arrow = fabric.util.createClass(fabric.Line, {
     ctx.rotate(angle);
     ctx.beginPath();
     // Move 5px in front of line to start the arrow so it does not have the square line end showing in front (0,0)
-    ctx.moveTo(5, 0);
-    ctx.lineTo(-5, 5);
-    ctx.lineTo(-5, -5);
+    ctx.moveTo(10, 0);
+    ctx.lineTo(-10, 10);
+    ctx.lineTo(-10, -10);
     ctx.closePath();
     ctx.fillStyle = this.stroke;
     ctx.fill();

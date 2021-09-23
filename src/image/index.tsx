@@ -1,34 +1,34 @@
 import React, { RefObject } from "react";
 import Tools from "../tools";
 import { fabric } from "fabric";
-import '../corner'
+import "../corner";
 import Arrow from "./objects/arrow";
 import { isDelete } from "../utils/shortcut";
 import { FabricEvent } from "../types";
 interface AnnotateImageProps {
-  blob:string
-  container?:() => HTMLElement
-  onSave:any
-  onCancel:any
-  toolsFixed:any
+  blob: string;
+  container?: () => HTMLElement;
+  onSave: any;
+  onCancel: any;
+  toolsFixed: any;
 }
 export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   static defaultProps = {
-    toolsFixed: false
+    toolsFixed: false,
   };
-  imageRef:RefObject<HTMLCanvasElement>;
-  container:RefObject<HTMLDivElement>;
-  activeLine:any
-  pointArray:any
-  editable:boolean
-  mouseFrom:any
-  mouseTo:any
-  doDrawing:any
-  drawingObject:any
-  canvas:any
-  stateArr :any[] = []
-  stateIdx :number = 0
-  constructor(props:AnnotateImageProps) {
+  imageRef: RefObject<HTMLCanvasElement>;
+  container: RefObject<HTMLDivElement>;
+  activeLine: any;
+  pointArray: any;
+  editable: boolean;
+  mouseFrom: any;
+  mouseTo: any;
+  doDrawing: any;
+  drawingObject: any;
+  canvas: any;
+  stateArr: any[] = [];
+  stateIdx: number = 0;
+  constructor(props: AnnotateImageProps) {
     super(props);
     this.imageRef = React.createRef<HTMLCanvasElement>();
     this.container = React.createRef<HTMLDivElement>();
@@ -47,7 +47,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   }
 
   keyupListener = () => {
-    window.addEventListener("keydown", this.onKeydown,false);
+    window.addEventListener("keydown", this.onKeydown, false);
   };
 
   state = {
@@ -55,10 +55,10 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     color: "#F04632",
     textActive: false,
     textEditing: false,
-    mode: ""
+    mode: "",
   };
 
-  getCanvasSize = async ()  =>
+  getCanvasSize = async () =>
     new window.Promise((resolve) => {
       const image = new Image();
 
@@ -90,7 +90,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           height,
           scale,
           imageWidth: image.naturalWidth,
-          imageHeight: image.naturalHeight
+          imageHeight: image.naturalHeight,
         });
       };
 
@@ -104,19 +104,19 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       return;
     }
 
-    const dimensions = await this.getCanvasSize() as any;
+    const dimensions = (await this.getCanvasSize()) as any;
 
     const canvas = this.imageRef.current;
 
     const fabricCanvas = new fabric.Canvas(canvas, {
       isDrawingMode: false,
       imageSmoothingEnabled: false,
-      selectionColor: "rgba(0,0,0,0.05)"
+      selectionColor: "rgba(0,0,0,0.05)",
     });
 
     fabricCanvas.setDimensions({
       width: dimensions.width,
-      height: dimensions.height
+      height: dimensions.height,
     });
 
     this.canvas = fabricCanvas;
@@ -126,11 +126,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       fabricCanvas.renderAll.bind(fabricCanvas),
       {
         scaleX: dimensions.scale,
-        scaleY: dimensions.scale
+        scaleY: dimensions.scale,
       }
     );
 
-    fabricCanvas.on("object:scaling", (e:any) => {
+    fabricCanvas.on("object:scaling", (e: any) => {
       var o = e.target;
       if (!o.strokeWidthUnscaled && o.strokeWidth) {
         o.strokeWidthUnscaled = o.strokeWidth;
@@ -141,7 +141,8 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     });
 
     fabricCanvas.freeDrawingBrush.color = this.state.color;
-    fabricCanvas.freeDrawingBrush.width = 1;
+    fabricCanvas.freeDrawingBrush.width = 4;
+    fabricCanvas.selection = false;
 
     // fabricCanvas.on("mouse:down", (options) => {
     //   if (this.state.textActive) {
@@ -159,16 +160,16 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     fabricCanvas.on("mouse:up", this.onMouseUp);
   };
 
-  onAfterRender = () =>{
-      this.stateArr.push(this.canvas.toJSON())
-      this.stateIdx++
-  }
+  onAfterRender = () => {
+    this.stateArr.push(this.canvas.toJSON());
+    this.stateIdx++;
+  };
 
-  onKeydown = (e:KeyboardEvent) => {
-    const { keyCode, ctrlKey } = e
+  onKeydown = (e: KeyboardEvent) => {
+    const { keyCode, ctrlKey } = e;
 
-    if (isDelete(e)){
-      this.remove()
+    if (isDelete(e)) {
+      this.remove();
     }
     // Check Ctrl key is pressed.
     if (!ctrlKey) {
@@ -184,33 +185,36 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     if (keyCode === 89) {
       this.redo();
     }
-  }
+  };
 
-  remove = () =>{
-    const activeObject =  this.canvas.getActiveObject()
+  remove = () => {
+    const activeObject = this.canvas.getActiveObject();
     if (!activeObject) {
       return;
     }
     this.canvas.remove(activeObject);
-  }
+  };
 
-  onMouseDown = (opt:FabricEvent) => {
+  onMouseDown = (opt: FabricEvent) => {
     const { mode } = this.state;
     const event = opt as FabricEvent<MouseEvent>;
-    if (event.target !== null) {
-      return;
+    console.log(event);
+    console.log(event.target);
+    if (event.target) {
+      if (mode === "rect" || mode === "circle" || mode === "arrow") {
+        return;
+      }
+      if (mode === "text" && event.target.text != undefined) {
+        return;
+      }
     }
     if (mode === "arrow") {
-      if (this.pointArray.length && this.activeLine) {
-        this.generateArrow(event);
-      } else {
-          this.addPoint(event);
-      }
+      this.addPoint(event);
     } else if (mode === "text") {
       if (this.state.textActive) {
         if (this.state.textEditing) {
           this.setState({
-            textEditing: false
+            textEditing: false,
           });
         } else {
           this.renderText(event.pointer!);
@@ -223,14 +227,14 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     }
   };
 
-  addPoint = (opt:FabricEvent) => {
+  addPoint = (opt: FabricEvent) => {
     const { absolutePointer } = opt as any;
     const { x, y } = absolutePointer;
     const circle = new fabric.Circle({
       radius: 3,
       fill: "#ffffff",
-      stroke: "#333333",
-      strokeWidth: 0.5,
+      stroke: "#0E2439",
+      strokeWidth: 1,
       left: x,
       top: y,
       selectable: false,
@@ -238,16 +242,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       hasControls: false,
       originX: "center",
       originY: "center",
-      hoverCursor: "pointer"
+      hoverCursor: "pointer",
     });
-    if (!this.pointArray.length) {
-      circle.set({
-        fill: "red"
-      });
-    }
     const points = [x, y, x, y];
     this.activeLine = new Arrow(points, {
-      strokeWidth: 2,
+      strokeWidth: 6,
       fill: "#999999",
       stroke: this.state.color,
       class: "line",
@@ -256,21 +255,21 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       selectable: false,
       hasBorders: false,
       hasControls: false,
-      evented: false
+      evented: false,
     });
     this.activeLine.set({
-      class: "line"
+      class: "line",
     });
     this.pointArray.push(circle);
     this.canvas.add(this.activeLine);
     this.canvas.add(circle);
   };
 
-  generateArrow = (opt:any) => {
+  generateArrow = (opt: any) => {
     const { absolutePointer } = opt;
     const { x, y } = absolutePointer;
-    let points :any= [];
-    this.pointArray.forEach((point:any) => {
+    let points: any = [];
+    this.pointArray.forEach((point: any) => {
       points = points.concat(point.left, point.top, x, y);
       this.canvas.remove(point);
     });
@@ -292,28 +291,27 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     //this.handler.interactionHandler.selection();
   };
 
-  add = (obj:any, ) => {
+  add = (obj: any) => {
     const { editable } = this;
     const option = {
-      hasControls: true,
-      hasBorders: true,
+      hasControls: false,
+      hasBorders: false,
       selectable: editable,
       lockMovementX: !editable,
       lockMovementY: !editable,
       hoverCursor: !editable ? "pointer" : "default",
-      editable :editable,
+      editable: editable,
       // _controlsVisibility:{
       //   tl:true,
       //   mt:false
       // }
     };
 
-
     const newOption = Object.assign(
       {},
       obj,
       {
-        editable
+        editable,
       },
       option
     );
@@ -327,8 +325,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     return createdObj;
   };
 
-
-  onMouseMove = (opt:any) => {
+  onMouseMove = (opt: any) => {
     const event = opt;
     const { mode } = this.state;
     if (mode === "arrow") {
@@ -347,16 +344,23 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     }
   };
 
-  onMouseUp = (e:any) => {
-    var xy = e.pointer;
-    this.mouseTo.x = xy.x;
-    this.mouseTo.y = xy.y;
-    this.canvas.renderAll();
-    this.drawingObject = null;
-    this.doDrawing = false;
+  onMouseUp = (e: any) => {
+    const { mode } = this.state;
+    if (mode === "arrow") {
+      if (this.pointArray.length && this.activeLine) {
+        this.generateArrow(e);
+      }
+    } else {
+      var xy = e.pointer;
+      this.mouseTo.x = xy.x;
+      this.mouseTo.y = xy.y;
+      this.canvas.renderAll();
+      this.drawingObject = null;
+      this.doDrawing = false;
+    }
   };
 
-  drawing = (e:any) => {
+  drawing = (e: any) => {
     if (this.drawingObject) {
       this.canvas.remove(this.drawingObject);
     }
@@ -369,7 +373,9 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     switch (this.state.mode) {
       case "rect":
         if (e.e.shiftKey) {
-          mouseTo.x - left > mouseTo.y - top ? mouseTo.y = top + mouseTo.x - left : mouseTo.x = left + mouseTo.y - top;
+          mouseTo.x - left > mouseTo.y - top
+            ? (mouseTo.y = top + mouseTo.x - left)
+            : (mouseTo.x = left + mouseTo.y - top);
         }
         var path =
           "M " +
@@ -400,15 +406,17 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           strokeWidth: 4,
           fill: "rgba(255, 255, 255, 0)",
           hasControls: true,
-          hasBorders:false,
-          padding:-2
+          hasBorders: false,
+          padding: -2,
         });
         //也可以使用fabric.Rect
         break;
       case "circle": //椭圆
         // 按shift时画正圆，只有在鼠标移动时才执行这个，所以按了shift但是没有拖动鼠标将不会画圆
         if (e.e.shiftKey) {
-          mouseTo.x - left > mouseTo.y - top ? mouseTo.y = top + mouseTo.x - left : mouseTo.x = left + mouseTo.y - top
+          mouseTo.x - left > mouseTo.y - top
+            ? (mouseTo.y = top + mouseTo.x - left)
+            : (mouseTo.x = left + mouseTo.y - top);
         }
 
         canvasObject = new fabric.Ellipse({
@@ -421,24 +429,24 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           rx: Math.abs(left - mouseTo.x) / 2,
           ry: Math.abs(top - mouseTo.y) / 2,
           strokeWidth: 4,
-          padding:-2
+          padding: -2,
         });
         break;
     }
     if (canvasObject) {
       // canvasObject.index = getCanvasObjectIndex();\
-      this.canvas.add(canvasObject);//.setActiveObject(canvasObject)
+      this.canvas.add(canvasObject); //.setActiveObject(canvasObject)
 
       this.drawingObject = canvasObject;
     }
   };
 
-  handleToolChange = (tool:string) => {
+  handleToolChange = (tool: string) => {
     this.setState({
-      mode: tool
+      mode: tool,
     });
     this.canvas.isDrawingMode = tool === "draw";
-    this.canvas.defaultCursor = tool === "text"?"text":"";
+    this.canvas.defaultCursor = tool === "text" ? "text" : "";
     switch (tool) {
       case "mouse":
         //this.handleMouse();
@@ -458,16 +466,14 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     }
   };
 
-
   initArrow = () => {
     this.activeLine = null;
     this.pointArray = [];
   };
 
-
   handleText = () => {
     this.setState({
-      textActive: true
+      textActive: true,
     });
     this.canvas.defaultCursor = "text";
   };
@@ -477,9 +483,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       left: x,
       top: y,
       fontFamily: "sans-serif",
+      fontWeight: "bold",
       fill: this.state.color,
       transparentCorners: false,
       lockRotation: true,
+      editingBorderColor: "#0E2439",
       borderColor: "#0E2439",
       cornerColor: "#0E2439",
       centeredScaling: false,
@@ -492,23 +500,23 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       width: 100,
       cursorDuration: 1,
       cursorDelay: 250,
-      fontSize:16
+      fontSize: 16,
     });
     this.canvas.add(newText).setActiveObject(newText);
     this.canvas.bringToFront(newText);
     this.canvas.renderAll();
     newText.enterEditing();
     this.setState({
-      textEditing: true
+      textEditing: true,
     });
   };
 
-  handleOk = async (event:any) => {
+  handleOk = async (event: any) => {
     event.stopPropagation();
-    const dimensions = await this.getCanvasSize() as any;
+    const dimensions = (await this.getCanvasSize()) as any;
     const dataURL = this.canvas.toDataURL({
       format: "png",
-      multiplier: 1 / dimensions.scale
+      multiplier: 1 / dimensions.scale,
     });
     //const json = this.canvas.toObject();
     //console.log(json);
@@ -526,7 +534,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     this.canvas.remove(this.canvas.getActiveObject());
   };
 
-  handleColorChange = (color:string) => {
+  handleColorChange = (color: string) => {
     this.setState({ color });
     this.canvas.freeDrawingBrush.color = color;
     this.canvas.stroke = color;
