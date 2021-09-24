@@ -1,6 +1,6 @@
 {
   "name": "fabric-img-editor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -21,8 +21,7 @@
     "clear": "rimraf node_modules",
     "prepub": "npm run clean && npm run compile && npm run dist && npm run release",
     "pub": "npm publish --registry https://registry.npmjs.org/",
-    "release": "standard-version",
-    "deploy": "gh-pages -d build"
+    "release": "standard-version"
   },
   "eslintConfig": {
     "extends": [
