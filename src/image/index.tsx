@@ -294,12 +294,11 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   add = (obj: any) => {
     const { editable } = this;
     const option = {
-      hasControls: false,
-      hasBorders: false,
+      hasControls: true,
+      hasBorders: true,
       selectable: editable,
       lockMovementX: !editable,
       lockMovementY: !editable,
-      hoverCursor: !editable ? "pointer" : "default",
       editable: editable,
       // _controlsVisibility:{
       //   tl:true,
