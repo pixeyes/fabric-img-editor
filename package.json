@@ -1,6 +1,6 @@
 {
-  "name": "fabric-img-editor",
-  "version": "0.0.4",
+  "name": "@vft-aurora/fabric-img-editor",
+  "version": "0.0.5",
   "private": false,
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -65,5 +65,8 @@
     "typescript": "3.8.3"
   },
   "license": "MIT",
-  "homepage": "/fabric-img-editor"
+  "homepage": "/fabric-img-editor",
+  "publishConfig": {
+    "access": "public"
+  }
 }
