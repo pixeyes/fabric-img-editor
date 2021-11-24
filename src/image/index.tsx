@@ -93,8 +93,8 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
           imageHeight: image.naturalHeight,
         });
       };
-
       image.src = this.props.blob;
+      image.setAttribute("crossOrigin",'Anonymous')
     });
 
   buildCanvas = async (blob = this.props.blob) => {
@@ -120,14 +120,12 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     });
 
     this.canvas = fabricCanvas;
-
-    fabricCanvas.setBackgroundImage(
-      blob,
-      fabricCanvas.renderAll.bind(fabricCanvas),
-      {
+    fabric.Image.fromURL(blob, function (img) {
+      fabricCanvas.setBackgroundImage(img, fabricCanvas.renderAll.bind(fabricCanvas), {
         scaleX: dimensions.scale,
         scaleY: dimensions.scale,
-      }
+        });
+      }, {crossOrigin: 'anonymous'}
     );
 
     fabricCanvas.on("object:scaling", (e: any) => {

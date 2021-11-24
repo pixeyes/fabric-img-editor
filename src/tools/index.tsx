@@ -59,14 +59,18 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
   return (
     <div className={"tools"} style={fixedToWindow ? { position: "fixed" } : {}}>
       <div className={"toolsInner"}>
-        <span className={"pickerContainer"} id="pickerContainer"/>
+        <span className={"pickerContainer"} id="pickerContainer" />
         {/*<button
             onClick={() => onToolChange("mouse")}
             className={toolClass("mouse")}
           >
             <MouseIcon className={"icon"} />
           </button>*/}
-        <Popover trigger="click" content={content} getPopupContainer={popupContainer}>
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={popupContainer}
+        >
           <button
             onClick={() => onToolChange("rect")}
             className={toolClass("rect")}
@@ -74,7 +78,11 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             <SquareIcon className={"icon"} />
           </button>
         </Popover>
-        <Popover trigger="click" content={content} getPopupContainer={popupContainer}>
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={popupContainer}
+        >
           <button
             onClick={() => onToolChange("circle")}
             className={toolClass("circle")}
@@ -82,7 +90,11 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             <Circle className={"icon"} />
           </button>
         </Popover>
-        <Popover trigger="click" content={content} getPopupContainer={popupContainer}>
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={popupContainer}
+        >
           <button
             onClick={() => onToolChange("arrow")}
             className={toolClass("arrow")}
@@ -90,7 +102,11 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             <ArrowLeftIcon className={"icon"} />
           </button>
         </Popover>
-        <Popover trigger="click" content={content} getPopupContainer={popupContainer}>
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={popupContainer}
+        >
           <button
             onClick={() => onToolChange("draw")}
             className={toolClass("draw")}
@@ -98,7 +114,11 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             <PenIcon className={"icon"} />
           </button>
         </Popover>
-        <Popover trigger="click" content={content} getPopupContainer={popupContainer}>
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={popupContainer}
+        >
           <button
             onClick={() => onToolChange("text")}
             className={toolClass("text")}
@@ -108,20 +128,26 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Popover>
 
         <hr className={"break"} />
-        <button
-          onClick={undo}
-          className={cx({
-            toolButton: true,
-            toolButtonTrash: false,
-          })}
-        >
-          <TrashIcon className={"icon"} />
-        </button>
         <Tooltip
           placement="top"
-          title="Cancel"
+          title="撤销"
           mouseEnterDelay={0.5}
-          align={{ offset: [-12] }}
+          getPopupContainer={popupContainer}
+        >
+          <button
+            onClick={undo}
+            className={cx({
+              toolButton: true,
+              toolButtonTrash: false,
+            })}
+          >
+            <TrashIcon className={"icon"} />
+          </button>
+        </Tooltip>
+        <Tooltip
+          placement="top"
+          title="取消"
+          mouseEnterDelay={0.5}
           getPopupContainer={popupContainer}
         >
           <button onClick={onCancel} className={"cancel"}>
@@ -130,9 +156,8 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Tooltip>
         <Tooltip
           placement="top"
-          title="Save annotations"
+          title="保存"
           mouseEnterDelay={0.5}
-          align={{ offset: [-12] }}
           getPopupContainer={popupContainer}
         >
           <button onClick={onSave} className={"save"}>
@@ -147,6 +172,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
 AnnotateTools.defaultProps = {
   tool: "",
   color: "#F04632",
-  popupContainer: () => document.getElementById('pickerContainer')
+  popupContainer: () => document.getElementById("pickerContainer"),
 };
 export default AnnotateTools;
