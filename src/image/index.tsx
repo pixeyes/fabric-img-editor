@@ -46,6 +46,29 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     this.keyupListener();
   }
 
+  componentDidUpdate(prevProps: Readonly<AnnotateImageProps>) {
+    if (prevProps.blob !== this.props.blob) {
+      this.refreshCanvas();
+    }
+  }
+
+  refreshCanvas = async () => {
+    this.canvas.clear();
+    const dimensions = (await this.getCanvasSize()) as any;
+    this.canvas.setDimensions({
+      width: dimensions.width,
+      height: dimensions.height,
+    });
+    const canvas = this.canvas
+    fabric.Image.fromURL(this.props.blob, function (img) {
+      canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+          scaleX: dimensions.scale,
+          scaleY: dimensions.scale,
+        });
+      }, {crossOrigin: 'anonymous'}
+    );
+  }
+
   keyupListener = () => {
     window.addEventListener("keydown", this.onKeydown, false);
   };
@@ -511,10 +534,10 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   handleOk = async (event: any) => {
     event.stopPropagation();
     const dimensions = (await this.getCanvasSize()) as any;
-    const dataURL = this.canvas.toDataURL({
-      format: "png",
-      multiplier: 1 / dimensions.scale,
-    });
+      const dataURL = this.canvas.toDataURL({
+        format: "png",
+        multiplier: 1 / dimensions.scale,
+      });
     //const json = this.canvas.toObject();
     //console.log(json);
     this.props.onSave(dataURL);
