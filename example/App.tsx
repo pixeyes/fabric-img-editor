@@ -19,7 +19,7 @@ function App() {
         onCancel={() => {
         }}
         toolsFixed
-        container={() => document.getElementById('pickerContainer')}
+        container={() => document.body}
       />
     </div>
   );

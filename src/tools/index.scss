@@ -48,15 +48,18 @@
     position: relative;
 
 }
-.pickerContainer .ant-popover-inner-content{
-    padding: 0;
-    .picker{
-        padding: 12px!important;
-    }
-    span:not(:last-of-type){
-        padding-right: 8px;
+.pickerContainer,.pickerPopover{
+    .ant-popover-inner-content{
+        padding: 0;
+        .picker{
+            padding: 12px!important;
+        }
+        span:not(:last-of-type){
+            padding-right: 8px;
+        }
     }
 }
+
 
 .save, .cancel {
     border-radius: 50%;

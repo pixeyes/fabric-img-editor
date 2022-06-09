@@ -67,74 +67,80 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             <MouseIcon className={"icon"} />
           </button>*/}
         <Popover
+          overlayClassName="pickerPopover"
           trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={() => onToolChange("rect")}
             className={toolClass("rect")}
           >
             <SquareIcon className={"icon"} />
-          </button>
+          </a>
         </Popover>
         <Popover
+          overlayClassName="pickerPopover"
           trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={() => onToolChange("circle")}
             className={toolClass("circle")}
           >
             <Circle className={"icon"} />
-          </button>
+          </a>
         </Popover>
         <Popover
+          overlayClassName="pickerPopover"
           trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={() => onToolChange("arrow")}
             className={toolClass("arrow")}
           >
             <ArrowLeftIcon className={"icon"} />
-          </button>
+          </a>
         </Popover>
         <Popover
+          overlayClassName="pickerPopover"
           trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={() => onToolChange("draw")}
             className={toolClass("draw")}
           >
             <PenIcon className={"icon"} />
-          </button>
+          </a>
         </Popover>
         <Popover
+          overlayClassName="pickerPopover"
           trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={() => onToolChange("text")}
             className={toolClass("text")}
           >
             <TypeIcon className={"icon"} />
-          </button>
+          </a>
         </Popover>
 
         <hr className={"break"} />
         <Tooltip
+          overlayClassName="pickerPopover"
           placement="top"
           title="撤销"
           mouseEnterDelay={0.5}
           getPopupContainer={popupContainer}
         >
-          <button
+          <a
             onClick={undo}
             className={cx({
               toolButton: true,
@@ -142,27 +148,29 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
             })}
           >
             <TrashIcon className={"icon"} />
-          </button>
+          </a>
         </Tooltip>
         <Tooltip
+          overlayClassName="pickerPopover"
           placement="top"
           title="取消"
           mouseEnterDelay={0.5}
           getPopupContainer={popupContainer}
         >
-          <button onClick={onCancel} className={"cancel"}>
+          <a onClick={onCancel} className={"cancel"}>
             <CloseIcon className={"icon"} />
-          </button>
+          </a>
         </Tooltip>
         <Tooltip
+          overlayClassName="pickerPopover"
           placement="top"
           title="保存"
           mouseEnterDelay={0.5}
           getPopupContainer={popupContainer}
         >
-          <button onClick={onSave} className={"save"}>
+          <a onClick={onSave} className={"save"}>
             <SaveIcon className={"icon"} />
-          </button>
+          </a>
         </Tooltip>
       </div>
     </div>
