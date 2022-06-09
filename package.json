@@ -1,13 +1,12 @@
 {
   "name": "@pixeyes/fabric-img-editor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "antd": "^4.0.0",
     "classnames": "^2.3.1",
     "fabric": "^4.6.0",
     "react-color": "^2.19.3"
@@ -23,6 +22,9 @@
     "pub": "npm publish --registry https://registry.npmjs.org/",
     "release": "standard-version",
     "deploy": "gh-pages -d build"
+  },
+  "peerDependencies": {
+    "antd": "^4.0.0"
   },
   "eslintConfig": {
     "extends": [
