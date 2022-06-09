@@ -68,7 +68,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
           </button>*/}
         <Popover
           overlayClassName="pickerPopover"
-          trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
@@ -81,7 +80,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Popover>
         <Popover
           overlayClassName="pickerPopover"
-          trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
@@ -94,7 +92,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Popover>
         <Popover
           overlayClassName="pickerPopover"
-          trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
@@ -107,7 +104,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Popover>
         <Popover
           overlayClassName="pickerPopover"
-          trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
@@ -120,7 +116,6 @@ const AnnotateTools: FC<AnnotateToolsProps> = ({
         </Popover>
         <Popover
           overlayClassName="pickerPopover"
-          trigger="click"
           content={content}
           getPopupContainer={popupContainer}
         >
