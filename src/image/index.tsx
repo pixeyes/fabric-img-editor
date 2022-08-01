@@ -5,16 +5,20 @@ import "../corner";
 import Arrow from "./objects/arrow";
 import { isDelete } from "../utils/shortcut";
 import { FabricEvent } from "../types";
+
 interface AnnotateImageProps {
   blob: string;
   container?: () => HTMLElement;
   onSave: any;
   onCancel: any;
   toolsFixed: any;
+  ratio?: number;
 }
+
 export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   static defaultProps = {
     toolsFixed: false,
+    ratio: 1,
   };
   imageRef: RefObject<HTMLCanvasElement>;
   container: RefObject<HTMLDivElement>;
@@ -28,6 +32,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   canvas: any;
   stateArr: any[] = [];
   stateIdx: number = 0;
+
   constructor(props: AnnotateImageProps) {
     super(props);
     this.imageRef = React.createRef<HTMLCanvasElement>();
@@ -59,15 +64,18 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
       width: dimensions.width,
       height: dimensions.height,
     });
-    const canvas = this.canvas
-    fabric.Image.fromURL(this.props.blob, function (img) {
-      canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+    const canvas = this.canvas;
+    fabric.Image.fromURL(
+      this.props.blob,
+      function (img) {
+        canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
           scaleX: dimensions.scale,
           scaleY: dimensions.scale,
         });
-      }, {crossOrigin: 'anonymous'}
+      },
+      { crossOrigin: "anonymous" }
     );
-  }
+  };
 
   keyupListener = () => {
     window.addEventListener("keydown", this.onKeydown, false);
@@ -84,7 +92,7 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   getCanvasSize = async () =>
     new window.Promise((resolve) => {
       const image = new Image();
-
+      const ratio = this.props.ratio!;
       image.onload = () => {
         let width = image.naturalWidth;
         let height = image.naturalHeight;
@@ -109,15 +117,15 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
         }
 
         resolve({
-          width,
-          height,
-          scale,
+          width: width / ratio,
+          height: height / ratio,
+          scale: scale / ratio,
           imageWidth: image.naturalWidth,
           imageHeight: image.naturalHeight,
         });
       };
       image.src = this.props.blob;
-      image.setAttribute("crossOrigin",'Anonymous')
+      image.setAttribute("crossOrigin", "Anonymous");
     });
 
   buildCanvas = async (blob = this.props.blob) => {
@@ -143,12 +151,19 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
     });
 
     this.canvas = fabricCanvas;
-    fabric.Image.fromURL(blob, function (img) {
-      fabricCanvas.setBackgroundImage(img, fabricCanvas.renderAll.bind(fabricCanvas), {
-        scaleX: dimensions.scale,
-        scaleY: dimensions.scale,
-        });
-      }, {crossOrigin: 'anonymous'}
+    fabric.Image.fromURL(
+      blob,
+      function (img) {
+        fabricCanvas.setBackgroundImage(
+          img,
+          fabricCanvas.renderAll.bind(fabricCanvas),
+          {
+            scaleX: dimensions.scale,
+            scaleY: dimensions.scale,
+          }
+        );
+      },
+      { crossOrigin: "anonymous" }
     );
 
     fabricCanvas.on("object:scaling", (e: any) => {
@@ -534,10 +549,10 @@ export default class AnnotateImage extends React.Component<AnnotateImageProps> {
   handleOk = async (event: any) => {
     event.stopPropagation();
     const dimensions = (await this.getCanvasSize()) as any;
-      const dataURL = this.canvas.toDataURL({
-        format: "png",
-        multiplier: 1 / dimensions.scale,
-      });
+    const dataURL = this.canvas.toDataURL({
+      format: "png",
+      multiplier: 1 / dimensions.scale,
+    });
     //const json = this.canvas.toObject();
     //console.log(json);
     this.props.onSave(dataURL);
